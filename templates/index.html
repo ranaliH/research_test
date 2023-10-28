@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <!-- <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='myfont/css/all.min.css')}}"> -->
+    <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+     <style>
+        .shadow{
+            box-shadow:3px 3px 10px black;
+            padding:30px;
+        }
+    </style>
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="static/assets/img/favicon.png" rel="icon">
+    <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="static/assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    
+
+    <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1 class="text-light"><a href="#"><span>WellBeingWhisper</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <!-- <li><a class="nav-link scrollto active" href="#hero">Home</a></li> -->
+          <!-- <li><a class="getstarted scrollto" href="/index">Login</a></li> -->
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <!-- <h1>Mental Illness Screening & Aiding Tool</h1> -->
+          <!-- <h2>We are team of talented designers making websites with Bootstrap</h2> -->
+          <!-- <div>
+            <a href="/register" class="btn-get-started scrollto">Register</a>
+          </div> -->
+          <div class="container" style="width: 1800px;">
+            <div class="col-md-offset-1 col-md-10" >
+                <div class="col-md-offset-3 col-md-5">
+                    <div class="shadow">
+                    <form action="/login" method="POST" autocomplete="off">
+                        <h3 class="page-header text-primary">Login Page</h3>
+    
+                         {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category,message in messages %}
+                            <div class="alert alert-{{category}}">{{message}}</div>
+                        {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+    
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" name="name" class="form-control" required>
+                        </div>
+                      </br>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="password" class="form-control" required>
+                        </div>
+                    </br>
+                        <div class="form-group">
+                            <input type="submit" value="Login" class="btn btn-success btn-block">
+                            <a href="{{url_for('register')}}" class="btn btn-primary btn-block">Register</a>
+                        </div>
+                    </form>
+                        </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="static/assets/img/hero-img.svg" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      
+    </section><!-- End About Section -->
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="container py-4">
+      <div class="copyright">
+        &copy; Copyright <strong><span>WellBeingWhisper</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/assets/vendor/aos/aos.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/assets/js/main.js"></script>
+
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+        $(".alert").hide(3000)
+    });
+</script>

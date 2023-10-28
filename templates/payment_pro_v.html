@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Inner Page - Ninestars Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/assets/img/favicon.png" rel="icon">
+  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/assets/css/style.css" rel="stylesheet">
+  <style>
+    .rounded-lg {
+  border-radius: 1rem !important;
+}
+
+.text-small {
+  font-size: 0.9rem !important;
+}
+
+.custom-separator {
+  width: 5rem;
+  height: 6px;
+  border-radius: 1rem;
+}
+
+.text-uppercase {
+  letter-spacing: 0.2em;
+}
+</style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1 class="text-light"><a href="#"><span>WellBeingWhisper</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="/detect_standard" class="nav-link scrollto">Home</a></li>
+          <li><a href="#" class="nav-link scrollto">Subscription</a></li>
+          <!-- <li class="dropdown"><a href="#"><span>Subscription</span> <i class="bi bi-chevron-right"></i></a>
+              <ul>
+                <li class="active"><a href="#">Standard</a></li>
+                <li><a href="#">Pro</a></li>
+              </ul>
+            </li> -->
+          <!-- <li><a href="{{ url_for('logout') }}" class="btn btn-primary btn-block">Logout</a></li> -->
+          <li><a href="{{ url_for('logout') }}" class="getstarted scrollto">Logout</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Upgrade Subscription</h2>
+          <!-- <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Inner Page</li>
+          </ol> -->
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+        
+    <section>
+      <div class="container py-5">
+    
+        <!-- <div class="row text-center align-items-end"> -->
+        <div class="row justify-content-center">
+          <!-- Pricing Table Standard-->
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="bg-white p-5 rounded-lg shadow">
+              <h1 class="h6 text-uppercase font-weight-bold mb-4">Standard</h1>
+              <h2 class="h1 font-weight-bold">free<span class="text-small font-weight-normal ml-2">/ month</span></h2>
+    
+              <div class="custom-separator my-4 mx-auto bg-primary"></div>
+    
+              <ul class="list-unstyled my-5 text-small text-left">
+                <li class="mb-3">
+                  <i class="fa fa-check mr-2 text-primary"></i> Analyze social media texts</li>
+                <li class="mb-3">
+                  <i class="fa fa-check mr-2 text-primary"></i> Emoji and abbriviation analysis</li>
+                <li class="mb-3">
+                  <i class="fa fa-check mr-2 text-primary"></i> Image filter & Emotion analysis of images</li>
+                <li class="mb-3">
+                  <i class="fa fa-check mr-2 text-primary"></i> Analysis of text in the images</li>
+                <li class="mb-3">
+                  <i class="fa fa-check mr-2 text-primary"></i> Theraputic chatting</li>
+                <li class="mb-3">
+                  <i class="fa fa-check mr-2 text-primary"></i> Online story recommender</li>
+                <li class="mb-3">
+                  <i class="fa fa-check mr-2 text-primary"></i> Activity recommender</li>
+                <li class="mb-3 text-muted">
+                  <i class="fa fa-times mr-2"></i>
+                  <del>Analyze waveform of music</del>
+                </li>
+                <li class="mb-3 text-muted">
+                  <i class="fa fa-times mr-2"></i>
+                  <del>Analyze musical characteristics of users playlist & lyrics of songs</del>
+                </li>
+                <li class="mb-3 text-muted">
+                  <i class="fa fa-times mr-2"></i>
+                  <del>Theraputic music with motivational video</del>
+                </li>
+              </ul>
+              <a href="#" class="btn btn-primary btn-block p-2 shadow rounded-pill" >Subscribed</a>
+            </div>
+          </div>
+          <!-- END -->
+    
+    
+          <!-- Pricing Table Pro-->
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="bg-white p-5 rounded-lg shadow">
+              <h1 class="h6 text-uppercase font-weight-bold mb-4">Pro</h1>
+              <h2 class="h1 font-weight-bold">$14<span class="text-small font-weight-normal ml-2">/ month</span></h2>
+    
+              <div class="custom-separator my-4 mx-auto bg-primary"></div>
+    
+              <ul class="list-unstyled my-5 text-small text-left">
+                <li class="mb-3">
+                  <i class="fa fa-check mr-2 text-primary"></i> Analyze social media texts</li>
+                <li class="mb-3">
+                  <i class="fa fa-check mr-2 text-primary"></i> Emoji and abbriviation analysis</li>
+                <li class="mb-3">
+                  <i class="fa fa-check mr-2 text-primary"></i> Image filter & Emotion analysis of images</li>
+                <li class="mb-3">
+                  <i class="fa fa-check mr-2 text-primary"></i> Analysis of text in the images</li>
+                <li class="mb-3">
+                  <i class="fa fa-check mr-2 text-primary"></i> Theraputic chatting</li>
+                <li class="mb-3">
+                  <i class="fa fa-check mr-2 text-primary"></i> Online story recommender</li>
+                <li class="mb-3">
+                  <i class="fa fa-check mr-2 text-primary"></i> Activity recommender</li>
+                <li class="mb-3">
+                  <i class="fa fa-check mr-2 text-primary"></i> Analyze waveform of music
+                </li>
+                <li class="mb-3">
+                  <i class="fa fa-times mr-2"></i>Analyze musical characteristics of users playlist & lyrics of songs</li>
+                <li class="mb-3">
+                  <i class="fa fa-times mr-2"></i>Theraputic music with motivational video</li>
+              </ul>
+              <a href="#" class="btn btn-primary btn-block p-2 shadow rounded-pill">Subscribe</a>
+            </div>
+          </div>
+          <!-- END -->
+        
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container text-center">
+        <div class="centered-div">
+        <!-- <div class="section-title">
+          <h2>Contact Us</h2>
+          <p>Contact us to get started</p>
+        </div> -->
+        <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="form-group mt-3">
+                  <label for="name">Card Holder Name</label>
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Card Holder Name" title="Please enter card holder name" required>
+                </div>
+                <div class="form-group mt-3">
+                  <label for="name">Card Number</label>
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Card Number" required pattern="\d{12}" title="Please enter a 12-digit card number">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="name">Expiration Date</label>
+                  <input type="date" name="name" class="form-control" id="name" placeholder="Expiration Date" title="Please enter card expirationd date" required>
+                </div>
+                <div class="form-group col-md-6 mt-3 mt-md-0">
+                  <label for="name">CVV</label>
+                  <input type="text" class="form-control" name="email" id="email" placeholder="CVV" required pattern="\d{3,4}" title="Please enter a 3 or 4-digit CVV number" required>
+                </div>
+              </div>
+              
+             
+              <!-- <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div> -->
+              <div class="text-center"><button type="submit">Subscribe</button></div>
+           
+          </form>
+        </div>
+      </div>
+      </div>
+      
+    </section>
+    
+
+    <!-- ======= Contact Us Section ======= -->
+    <!-- <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Contact Us</h2>
+          <p>Contact us the get started</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>A108 Adam Street, New York, NY 535022</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@example.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+1 5589 55488 55s</p>
+              </div>
+
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            </div>
+
+          </div>
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group col-md-6 mt-3 mt-md-0">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>End Contact Us Section -->
+
+    </div>
+
+  </main><!-- End #main -->
+
+ <!-- ======= Footer ======= -->
+ <footer id="footer">
+  
+  
+  <div class="footer-top">
+  
+  </div>
+
+  <div class="container py-4">
+    <div class="copyright">
+      &copy; Copyright <strong><span>WellBeingWhisper</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      
+    </div>
+  </div>
+</footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/assets/vendor/aos/aos.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/assets/js/main.js"></script>
+
+</body>
+
+</html>

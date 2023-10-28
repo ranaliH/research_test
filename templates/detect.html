@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <meta charset="UTF-8"> -->
+    <!-- <title>Detect Page</title> -->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='myfont/css/all.min.css') }}"> -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+
+    <!-- new************************************* -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Detect Page</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="static/assets/img/favicon.png" rel="icon">
+    <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="static/assets/css/style.css" rel="stylesheet">
+
+    /* Loading icon styles */
+    <style>
+      .loading-icon {
+          display: none;
+          justify-content: center;
+          align-items: center;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.7);
+          z-index: 9999;
+      }
+
+      .spinner {
+          border: 4px solid rgba(255, 255, 255, 0.3);
+          border-top: 4px solid #3498db;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+      }
+      .checked {
+        color: orange;
+      }
+    </style>
+</head>
+<body>
+    <!-- <div class="container">
+        <div class="col-md-offset-3 col-md-5">
+            <h2 class="page-header text-primary text-center">Detect Page</h2>
+            <h3 class="text-success">Welcome : {{ session["name"] }}</h3>
+            <h3 class="text-success">Reddit Username : {{ session["rdusername"] }}</h3>
+            <h3 class="text-success">Instagram Username : {{ session["inusername"] }}</h3>
+            <h3 class="text-success">Instagram Password : {{ session["inpassword"] }}</h3>
+            <h3 class="text-success">Spotify Username : {{ session["spusername"] }}</h3>
+            <button class="btn btn-success btn-lg detect-button" id="detect-button">Detect</button>
+            <hr>
+            <a href="{{ url_for('logout') }}" class="btn btn-primary btn-block">Logout</a>
+        </div>
+    </div> -->
+
+    <!-- <style>
+        /* Custom styles for the detect button */
+        .detect-button {
+            margin-top: 20px;
+        }
+    </style> -->
+
+    
+<!-- </body>
+<body> -->
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
+  
+        <div class="logo">
+          <h1 class="text-light"><a href="#"><span>WellBeingWhisper</span></a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+  
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a  class="nav-link scrollto active">Home</a></li>
+            <li><a  class="nav-link scrollto">Pro <span class="fa fa-star checked"></span></a></li>
+            <li><a href="{{ url_for('logout') }}" class="getstarted scrollto">Logout</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+  
+      </div>
+    </header><!-- End Header -->
+  
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+  
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+            <!-- <h1>Welcome 'User'</h1> -->
+            <h1>Welcome : {{ session["name"] }}</h1>
+            <h2>Reddit Username : {{ session["rdusername"] }}</h2>
+            <h2>Instagram Username : {{ session["inusername"] }}</h2>
+            <!-- <h3 class="text-success">Instagram Password : {{ session["inpassword"] }}</h3> -->
+            <h2>Spotify Username : {{ session["spusername"] }}</h2>
+            <div>
+              <button class="btn-get-started scrollto" id="detect-button">Detect</button>
+            </div> 
+            <!-- ... loading icon ... -->
+
+            <div id="loading-icon" class="loading-icon">
+              <div class="spinner"></div>
+            </div>
+
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 hero-img">
+            <img src="static/assets/img/hero-img.svg" class="img-fluid animated" alt="">
+          </div>
+        </div>
+      </div>
+  
+    </section>
+    <!-- End Hero -->
+  
+    <main id="main">
+  
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container">
+  
+          <div class="row justify-content-between">
+            <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
+              <img src="static/assets/img/about-img.svg" class="img-fluid" alt="" data-aos="zoom-in">
+            </div>
+            <div class="col-lg-6 pt-5 pt-lg-0">
+              <h3 data-aos="fade-up">Mental Illness Screening and Aiding Tool</h3>
+              <p data-aos="fade-up" data-aos-delay="100">
+                The main objective is to provide early intervention and support through a chatbot to individuals who may be struggling with symptoms of mental disorders by analyzing social media data, such as text, images and audio.
+                By analyzing text, the system detects if an individual is suffering from any mental illnesses & if so, the type of mental illness.
+              </p>
+              <div class="row">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                  <!-- <i class="bx bx-receipt"></i>
+                  <h4>Corporis voluptates sit</h4>
+                  <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p> -->
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                  <!-- <i class="bx bx-cube-alt"></i>
+                  <h4>Ullamco laboris nisi</h4>
+                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </section><!-- End About Section -->
+  
+      <!-- ======= Services Section ======= -->
+      <section id="services" class="services section-bg">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>Motivational Quotes</h2>
+            <!-- <p>Check out the great services we offer</p> -->
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-happy"></i></div>
+                <h4 class="title">"There is a crack in everything, that’s how the light gets in."</h4>
+                <p class="description">― Leonard Cohen</p>
+              </div>
+            </div>
+  
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-happy"></i></div>
+                <h4 class="title">"Mental health…is not a destination, but a process. It’s about how you drive, not where you’re going."</h4>
+                <p class="description">— Noam Shpancer, PhD</p>
+              </div>
+            </div>
+  
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-happy"></i></div>
+                <h4 class="title">"There is hope, even when your brain tells you there isn’t."</h4>
+                <p class="description">— John Green</p>
+              </div>
+            </div>
+  
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="400">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-happy"></i></div>
+                <h4 class="title">"Sometimes the people around you won’t understand your journey. They don’t need to, it’s not for them."</h4>
+                <p class="description"> – Joubert Botha</p>
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Services Section -->
+  
+       
+  
+      <!-- ======= Team Section ======= -->
+      <section id="team" class="team">
+        <div class="container">
+  
+          <div class="section-title" data-aos="fade-up">
+            <h2>Our team is always here to help</h2>
+            <!-- <p>Our team is always here to help</p> -->
+          </div>
+  
+          <div class="row">
+  
+            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+              <div class="member">
+                <img src="static/assets/img/mentalhealth/img2.jpeg" class="img-fluid" alt="">
+              
+              </div>
+            </div>
+  
+            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+              <div class="member">
+                <img src="static/assets/img/mentalhealth/img6.jpeg" class="img-fluid" alt="">
+               
+              </div>
+            </div>
+  
+            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+              <div class="member">
+                <img src="static/assets/img/mentalhealth/img4.jpeg" class="img-fluid" alt="">
+               
+              </div>
+            </div>
+  
+            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+              <div class="member">
+                <img src="static/assets/img/mentalhealth/img1.jpeg" class="img-fluid" alt="">
+                
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Team Section -->
+  
+      <!-- ======= F.A.Q Section ======= -->
+      <section id="faq" class="faq section-bg">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+            <!-- <p>Frequently Asked Questions</p> -->
+          </div>
+  
+          <ul class="faq-list" data-aos="fade-up" data-aos-delay="100">
+  
+            <li>
+              <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">What is mental health and why is it important? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+              <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Mental health refers to our emotional, psychological and social wellbeing. It is what enables us to respond to the challenges of life and build psychological skills.
+                  Caring for our mental health is essential part of our health and wellbeing. Our feelings, thoughts and actions all play a part and by having the right support and tools in place, we can all live healthier lives.
+                  Everyone has physical and mental health and it’s helpful to understand that ‘mental health’ doesn’t mean ‘mental illness’.
+                </p>
+              </div>
+            </li>
+  
+            <li>
+              <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">How do I spot the signs of mental ill-health? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+              <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Identifying signs of mental health difficulties begins with becoming more self-aware. This will help us to recognise how we are feeling as well as what works and what doesn’t when it comes to maintaining our psychological wellbeing.
+                  Here are some signs and symptoms of mental ill-health we should be aware of:
+                  Changes in how you feel about yourself, others or certain situations
+                  Persistent feelings of negative emotions, such as sadness, hopelessness or guilt
+                  Feeling socially withdrawn
+                  Changing habits or routines into unhealthy ones
+                  Physical pain
+                  Poor sleep and fatigue
+                </p>
+              </div>
+            </li>
+  
+            <li>
+              <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">What are symptoms of depression and anxiety? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+              <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Depression is characterised by a few symptoms, the main one being low mood that persists for a long time in way that affects everyday life.
+                  Anxiety is a feeling that can naturally arise in response to a stressful situation, although it can become a struggle if it persists after the situation has been resolved.
+                  Symptoms can include digestive disturbances, aches and pains, heart palpitations, difficulty breathing along with feelings of uncertainty and worry.
+                  They are the most common reasons for people to seek help too. VitalityHealth claims data found 56% of people accessed Talking Therapies to help with anxiety, while depression accounted for almost 20% of visits in 2021.
+                </p>
+              </div>
+            </li>
+  
+            <li>
+              <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">What treatments are available? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+              <div id="faq4" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  There are a variety of ways we can support our mental health; support groups, therapy, hospitalisation and medication where needed are just a few.
+                  Self-care is another way to support your wellbeing, along with getting the diagnosis and right treatment if it is required.
+                  Remember, you can discuss your mental health with a professional such as a GP or mental health professional, who will be able to direct you and refer you to the right suppo
+                </p>
+              </div>
+            </li>
+  
+            <li>
+              <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">How does stress affect us mentally and physically? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+              <div id="faq5" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Stress is natural for all of us to experience; it is our response to something that requires attention or alters our system.
+                  As well as affecting our bodies, stress impacts our thoughts and feelings, making us feel overwhelmed, anxious or in a rush to do things.
+                  Bringing joy and calmness into our life even when things are difficult is an important way to balance out stress.
+                  To reduce and manage stress techniques are available to calm our nervous system, such as physical activity and practicing breathing techniques.
+                  Physically, a lot happens in our body when we’re feeling stress. We release adrenalin and cortisol, which travels around the body ensuring we have the energy to respond to any given situation. This responses is known as ‘fight or flight’.
+                  Often, we can feel the involuntary physical effects, such as our heart beating fast, palms sweating and shortness of breath.
+                  One way to counteract a ‘stress response’ is to use techniques that trigger our ‘rest and digest’ response. Such activities, such as like grounding techniques, meditation and mindfulness – can help to calm our nervous system.
+                </p>
+              </div>
+            </li>
+  
+            <li>
+              <div data-bs-toggle="collapse" href="#faq6" class="collapsed question">How do I talk about my mental health difficulties? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+              <div id="faq6" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  It’s so important to start the conversation. Reach out to someone you trust, feel safe and comfortable with. This could be a partner, friend, family member, colleague, or mental health professional.
+                  Sharing how you’re feeling may feel tough, but those you care about you want to help. Taking a moment to talk a big step towards supporting your mental health.
+                  Seeking out support groups, whether that’s in-person or virtually. A group setting may feel less lonely and can be a way to connect with others going through a similar challenge.
+                  Also, consider your environment. Think about where you have a conversation with that someone – for example, talking in the car can feel less informal and intimidating.
+                </p>
+              </div>
+            </li>
+  
+          </ul>
+  
+        </div>
+      </section>
+      <!-- End F.A.Q Section -->
+  
+     
+  
+    </main>
+    <!-- End #main -->
+  
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+  
+  
+      <div class="footer-top">
+      
+      </div>
+  
+      <div class="container py-4">
+        <div class="copyright">
+          &copy; Copyright <strong><span>WellBeingWhisper</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          
+        </div>
+      </div>
+    </footer><!-- End Footer -->
+  
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
+    <!-- Vendor JS Files -->
+    <script src="static/assets/vendor/aos/aos.js"></script>
+    <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="static/assets/vendor/php-email-form/validate.js"></script>
+  
+    <!-- Template Main JS File -->
+    <script src="static/assets/js/main.js"></script>
+    <script>
+        document.getElementById('detect-button').addEventListener('click', function() {
+            // Prepare data to send in the request payload
+            const dataToSend = {
+                name: "{{ session['name'] }}",
+                rdusername: "{{ session['rdusername'] }}",
+                inusername: "{{ session['inusername'] }}",
+                spusername: "{{ session['spusername'] }}",
+                inpassword: "{{ session['inpassword'] }}"
+            };
+
+           
+            // Make an AJAX request to the Flask route when the button is clicked
+            fetch('/base', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataToSend) // Send the data in JSON format
+            })
+            .then(response => response.text())
+            .then(data => {
+                // Handle the response from the server if needed
+                console.log(data); // Log the actual response data
+                window.location.href = '/base'; // Redirect to the base.html page
+            })
+            .catch(error => {
+                // Handle errors here
+                console.error('Error:', error);
+            });
+        });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const detectButton = document.getElementById("detect-button");
+        const loadingIcon = document.getElementById("loading-icon");
+
+        detectButton.addEventListener("click", function () {
+            // Display the loading icon
+            loadingIcon.style.display = "flex"; // Show the loading icon
+
+            // Simulate a delay for demonstration purposes (replace this with your actual detection logic)
+            setTimeout(function () {
+                // Hide the loading icon after the detection is complete
+                loadingIcon.style.display = "none"; // Hide the loading icon
+            }, 3000); // Replace 3000 with the actual time your detection takes
+        });
+    });
+
+    </script>
+  
+  </body>
+</html>

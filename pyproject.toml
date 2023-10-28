@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "2023-017"
+version = "0.1.0"
+description = ""
+authors = ["Puranjana <puranjana.wijayarathna@atlaslabs.com.au>"]
+readme = "README.md"
+packages = [{include = "2023_017"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.0.2"
+wordcloud = "^1.9.2"
+matplotlib = "^3.7.1"
+openai = "^0.27.8"
+sklearn = "^0.0.post5"
+nltk = "^3.8.1"
+transformers = "^4.30.2"
+requests = "^2.31.0"
+bs4 = "^0.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
