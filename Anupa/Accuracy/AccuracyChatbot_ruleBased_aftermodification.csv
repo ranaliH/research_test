@@ -1,0 +1,39 @@
+pattern,result,desired_response
+hello,1,
+nothing much,1,
+sure,0,n
+im not feeling well,0,n
+not right now,1,
+im depressed i guess,1,
+i have too much to do and i feel so stressed,1,
+sure i will do that,1,
+nothing much,1,
+no i think im fine now,1,
+nothing much im just bored,1,
+yea sure,1,
+heyy,1,
+im not doing well these days,1,
+sure thing,0,n
+no i have too much to do these days,1,
+maybe ive postponed work too much,1,
+yea thank you,1,
+who are you,1,
+im doing good today,1,
+no its fine im just spending time,1,
+heeeya,1,
+i need some advice,1,
+do you know how to releve stress,1,
+oh okay thanks ill seek some help,1,
+hii bro,1,
+im not sure actually,0,n
+im feeling fed up,0,n
+good afternoon,1,
+its going pretty well,1,
+i just like visiting,0,n
+good day,0,n
+im feeling a little nervous,0,n
+good morning,1,
+im feeling down today,0,n
+im not sure why,0,n
+good evening,1,
+its been a long day for me,1,

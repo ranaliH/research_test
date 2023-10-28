@@ -1,0 +1,40 @@
+pattern,result,desired_response
+hello,1,
+nothing much,1,
+sure,1,
+im not feeling well,1,
+not right now,1,
+im depressed i guess,1,
+im having too much work and i feel so stressed,0,take a small break friend. and make a plan if possible alright?
+sure i will do that,0,excellent!! so what's going on these days?
+nothing much,1,
+no i think im fine now,1,
+nothing much im just bored,1,
+yea sure,0,great!! so what do you wanna talk about?
+heyy,1,
+im not doing well these days,1,
+sure thing,0,maybe take a little break from work?
+mm no i have too much to do theese days,1,
+maybe ive postponed work too much,0,ohh i see... don't worry about it now friend. just try not to repeat that problem ok? :)
+yeaa thank you,1,
+who are you,1,
+im doing good todayy,0,that's great!! you wanna tell me about your day?
+noo its fine im just spending time,1,
+heeya,1,
+i need some advice,1,
+do you know how to releive stress,1,
+oh okay thanks ill seek some help,1,
+hii bro,1,
+im not sure actually,1,
+im feeling fed up,1,
+good afternoon,1,
+its going pretty well,0,that's great!!...so what brings you here?
+i just felt like visiting,0,ohh that's nice...what do you wanna talk about?
+good dayy,0,hey theree :) so...what bring you here today?
+im feeling a little nervous,1,
+good morning,1,
+im feeling down today,1,
+im not sure why,1,
+good evening,1,
+it been a lonely day for me,0,i'm sorry to hear that...why did you feel that way?
+im not very social these days,1,
